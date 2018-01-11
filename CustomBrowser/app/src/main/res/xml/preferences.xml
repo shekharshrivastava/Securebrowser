@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Basic">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="notification_preference"
+            android:title="Notification" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/list_preference_entries"
+            android:entryValues="@array/list_preference_entries"
+            android:key="list_preference_1"
+            android:title="Font Size" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
