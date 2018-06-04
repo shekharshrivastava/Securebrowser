@@ -2,7 +2,6 @@ package com.app.ssoft.securebrowser;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
@@ -25,10 +24,12 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -85,7 +86,7 @@ import io.salyangoz.updateme.listener.OnNegativeButtonClickListener;
 import io.salyangoz.updateme.listener.OnPositiveButtonClickListener;*/
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-public class MainActivity extends Activity implements CompoundButton.OnCheckedChangeListener, WebView.FindListener, AdapterView.OnItemClickListener, BottomNavigationView.OnNavigationItemSelectedListener, View.OnClickListener, EasyPermission.OnPermissionResult {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, WebView.FindListener, AdapterView.OnItemClickListener, BottomNavigationView.OnNavigationItemSelectedListener, View.OnClickListener, EasyPermission.OnPermissionResult {
     //    BottomNav.OnTabSelectedListener,
     private static final int REQ_CODE_SPEECH_INPUT = 3;
     private static final int REQUEST_WRITE_EXTERNAL_STORAGE = 1;
@@ -136,6 +137,7 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
     //    private TextView mTextMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        /* UpdateMe.with(this).check();
@@ -272,11 +274,8 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                     enableOrDisableControls(true);
                     url = urlText.getText().toString();
                     if (!hashTable.containsKey(url)) {
-                        if ((url.endsWith(".com") || url.endsWith(".in") || url.endsWith(".org") || url.contains(".gov"))) {
-                            if (!url.startsWith("https://")) {
-                                webView.loadUrl("https://" + url);
-
-                            }
+                        if (Patterns.WEB_URL.matcher(url).matches()) {
+                            webView.loadUrl("https://" + url);
                         } else {
                             String webSearchText = "https://www.google.com/search?q=" + url;
                             webView.loadUrl(webSearchText);
@@ -297,7 +296,11 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                 return true;
             }
         });
+
+
         webView = (WebView) findViewById(R.id.webView);
+        BrowserSettings.initialize(getApplicationContext());
+        BrowserSettings.getInstance().setTextZoom(150);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAppCacheEnabled(true);
@@ -319,6 +322,16 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
         webView.setVerticalScrollBarEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setFindListener(this);
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setSavePassword(true);
+        webView.getSettings().setSaveFormData(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.getSettings().setEnableSmoothTransition(true);
+
 
         //handling external intent
         if (!url.isEmpty()) {
@@ -989,6 +1002,10 @@ public class MainActivity extends Activity implements CompoundButton.OnCheckedCh
                 }
                 break;
             case R.id.navigation_find:
+             /*   BrowserSettings.initialize(getApplicationContext());
+                BrowserSettings.getInstance().toggleMobileUseragent(webView);
+                webView.clearCache(true);
+                webView.reload();*/
                 if (searchLinearLayout.getVisibility() == View.VISIBLE) {
                     searchLinearLayout.setVisibility(View.GONE);
                     urlLinearLayout.setVisibility(View.VISIBLE);

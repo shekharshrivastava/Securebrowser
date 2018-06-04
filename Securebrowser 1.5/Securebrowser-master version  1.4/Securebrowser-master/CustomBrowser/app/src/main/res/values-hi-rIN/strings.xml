@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Secured Browser</string>
+    <string name="title_home">होम</string>
+    <string name="title_dashboard">डैशबोर्ड</string>
+    <string name="title_notifications">सूचनाएं</string>
+    <string name="title_activity_settings">सेटिंग्स</string>
+    <string name="title_activity_bookmark">बुकमार्क</string>
+    <string name="title_activity_history">इतिहास</string>
+    <string name="title_activity_download">डाउनलोड</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">सामान्य</string>
+
+
+    <string name="alert_title">ध्यान दें!</string>
+    <string name="alert_message">डेटा लोड करने में असमर्थ। \ n अपना कनेक्शन जांचें</string>
+    <string name="video">वीडियो</string>
+    <string name="googleURL">www.google.com</string>
+    <string name="facebookURL">www.facebook.com</string>
+    <string name="amazonURL">www.amazon.in</string>
+    <string name="youtubeURL">www.youtube.com</string>
+    <string name="cricbuzzURL">www.cricbuzz.com</string>
+    <string name="twitterURL">www.twitter.com</string>
+    <string name="alert_positive">Close</string></resources>

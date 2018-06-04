@@ -2,7 +2,8 @@
     <string name="app_name">Secured Browser</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications"
+        >Notifications</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_bookmark">Bookmark</string>
     <string name="title_activity_history">History</string>
@@ -88,7 +89,6 @@
 
     <string name="alert_title">Attention!</string>
     <string name="alert_message">Unable to load data. \nCheck your connection!</string>
-    <string name="alert_positive">Close</string>
     <string name="video">Video</string>
     <string name="info_text">This is a simple app that shows the use of RSS Parse library.
          &lt;br /&gt;&lt;br /&gt;You can find the source code on </string>
@@ -99,4 +99,5 @@
     <string name="youtubeURL">www.youtube.com</string>
     <string name="cricbuzzURL">www.cricbuzz.com</string>
     <string name="twitterURL">www.twitter.com</string>
+    <string name="alert_positive">Close</string>
 </resources>

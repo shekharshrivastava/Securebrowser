@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Secured Browser</string>
+    <string name="title_home">Zuhause</string>
+    <string name="title_dashboard">Instrumententafel</string>
+    <string name="title_notifications">Benachrichtigung</string>
+    <string name="title_activity_settings">"die Einstellungen "</string>
+    <string name="title_activity_bookmark">Lesezeichen</string>
+    <string name="title_activity_history">Geschichte</string>
+    <string name="title_activity_download">Downloads</string>
+    <string name="pref_header_general">Allgemeines</string>
+    <string name="pref_title_social_recommendations">"Aktiviere soziale Empfehlungen "</string>
+    <string name="pref_description_social_recommendations">"Empfehlungen für Kontaktpersonen basierend auf Ihrem Nachrichtenverlauf "</string>
+    <string name="pref_title_display_name">Anzeigename</string>
+    <string name="pref_header_data_sync">"Daten und Synchronisierung "</string>
+    <string name="pref_title_add_friends_to_messages">"Fügen Sie Freunden Nachrichten hinzu "</string>
+    <string name="pref_title_sync_frequency">"Synchronisierungsfrequenz "</string>
+    <string name="alert_positive">"Schließen "</string>
+    <string name="alert_message">"Daten können nicht geladen werden "</string>
+    <string name="alert_title">"Beachtung! "</string>
+</resources>
